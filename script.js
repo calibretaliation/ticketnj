@@ -1,33 +1,35 @@
 // --- Elements & Config ---
-const imageElement = document.getElementById('slideshow-image');
+const container = document.getElementById('slideshow-container');
 const images = ['image1.png', 'image2.png'];
-const intervalTime = 5000;
+const intervalTime = 500;
 let currentIndex = 0;
 
 // --- Logic ---
 
-// 1. DYNAMIC HEIGHT: Fixes the viewport height issue on mobile.
+// 1. DYNAMIC HEIGHT: Sets the --app-height CSS variable. (No changes here)
 const setAppHeight = () => {
-    // Calculate the actual inner height and set it as a CSS variable.
-    const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
 };
-// Run on load and whenever the window is resized.
 window.addEventListener('resize', setAppHeight);
-setAppHeight(); // Run it once on initial load.
+setAppHeight();
 
-// 2. SLIDESHOW: The image changing logic (no changes here).
+// 2. SLIDESHOW: The image changing logic is slightly different now.
 function changeImage() {
-    imageElement.classList.add('fade-out');
+    container.classList.add('fade-out');
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % images.length;
-        imageElement.src = images[currentIndex];
-        imageElement.classList.remove('fade-out');
+        // Update the background-image property instead of src
+        container.style.backgroundImage = `url('${images[currentIndex]}')`;
+        container.classList.remove('fade-out');
     }, 700);
 }
+
+// Set the initial image
+container.style.backgroundImage = `url('${images[0]}')`;
+// Start the slideshow
 setInterval(changeImage, intervalTime);
 
-// 3. FULLSCREEN: Enter true fullscreen on user tap.
+// 3. FULLSCREEN: Enter true fullscreen on user tap. (No changes here)
 document.body.addEventListener('click', () => {
     if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen();
