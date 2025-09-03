@@ -1,24 +1,24 @@
 body, html {
     margin: 0;
     padding: 0;
-    overflow: hidden;
     background-color: #000;
-    /* Ensure body and html fill the whole space */
-    width: 100%;
-    height: 100%; 
+    /* This is the key: make the body slightly taller than the screen to enable scrolling */
+    height: 100.5%;
+    overflow-x: hidden;
 }
 
-#slideshow-container {
-    width: 100%;
-    /* Use the JS-calculated height */
-    height: var(--app-height, 100vh);
+#slideshow-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    /* --- Key properties for image scaling --- */
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    
-    /* Smooth transition for the background image */
+    /* This ensures the image fits within the visible screen area */
+    max-width: 100vw;
+    max-height: 100vh;
+    object-fit: contain;
+
+    /* Smooth fade transition */
     opacity: 1;
     transition: opacity 0.7s ease-in-out;
 }
