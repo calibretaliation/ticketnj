@@ -13,8 +13,23 @@ body, html {
     width: 100vw;
     height: 100vh;
     transition: all 0.4s ease-in-out;
+
+    /* ADD THIS LINE for QR code positioning */
+    /* position: relative;  */
 }
 
+/* Add this new rule for the QR code */
+#qr-code-image {
+    position: absolute; /* Position relative to #image-container */
+    top: 5px;          /* Distance from the top edge */
+    right: 55px;        /* Distance from the right edge */
+    width: 130px;       /* Adjust size as needed, e.g., 100px */
+    height: auto;       /* Maintain aspect ratio */
+    z-index: 101;       /* Ensure it's on top of the slideshow image and textboxes */
+    background-color: rgb(255, 255, 255); /* Optional: A small white background to ensure it stands out */
+    padding: 5px;       /* Optional: Padding around the QR code */
+    border-radius: 5px; /* Optional: Slightly rounded corners */
+}
 /* The fullscreen class makes the container fill the screen. */
 #image-container.fullscreen {
     top: 0;
@@ -69,6 +84,5 @@ body, html {
 #countdown-box {
     bottom: 84px; /* Position it above the existing box */
     font-size: 15px;
-    background-color: rgba(255, 255, 255);
-    transform: translateX(-45%); /* This will keep it centered */
+    background-color: rgba(255, 255, 255);    
 }

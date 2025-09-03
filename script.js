@@ -30,6 +30,7 @@ function matchWidths() {
         renderedImageWidth = containerHeight * imageAspectRatio;
     }
     datetimeBox.style.width = `${renderedImageWidth}px`;
+    countdownBox.style.width = `${renderedImageWidth}px`;
 }
 
 // --- 2. Slideshow Logic ---
