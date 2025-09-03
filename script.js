@@ -75,8 +75,8 @@ setInterval(updateTime, clockIntervalTime);
 // Get the new countdown box element
 const countdownBox = document.getElementById('countdown-box');
 
-// Set the expiration time to 30 minutes from now
-const expirationTime = new Date().getTime() + 30 * 60 * 1000;
+// Set the expiration time to 25 minutes from now
+const expirationTime = new Date().getTime() + 25 * 60 * 1000;
 
 function updateCountdown() {
     const now = new Date().getTime();
