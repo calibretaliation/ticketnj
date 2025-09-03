@@ -1,27 +1,28 @@
-/* Remove default browser spacing */
-body {
-    margin: 0;
-    overflow: hidden; /* Hide scrollbars */
-    background-color: #000; /* Black background for letterboxing */
+/* Create a CSS variable for the dynamic height */
+:root {
+    --app-height: 100vh;
 }
 
-/* Style the image to be centered and fill the screen */
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
 #slideshow-image {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center the image */
-
-    /* Ensure the entire image is visible without stretching */
-    max-width: 100vw;   /* Max width is 100% of viewport width */
-    max-height: 100vh; /* Max height is 100% of viewport height */
+    transform: translate(-50%, -50%);
     
-    /* Add a smooth fade transition when the image changes */
+    /* Use our dynamic height variable instead of vh units */
+    max-width: 100vw;   
+    max-height: var(--app-height); /* This is the important change */
+    
     opacity: 1;
-    /* transition: opacity 0.7s ease-in-out; */
+    transition: opacity 0.7s ease-in-out;
 }
 
-/* A class to temporarily make the image invisible for the fade effect */
 .fade-out {
     opacity: 0;
 }
