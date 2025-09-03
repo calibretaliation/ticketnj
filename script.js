@@ -1,16 +1,13 @@
+// Get the elements
+const container = document.getElementById('image-container');
 const imageElement = document.getElementById('slideshow-image');
+
+// Config
 const images = ['image1.png', 'image2.png'];
 const intervalTime = 5000;
 let currentIndex = 0;
 
-// --- DYNAMIC HEIGHT: For better mobile display ---
-const setAppHeight = () => {
-    document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
-};
-window.addEventListener('resize', setAppHeight);
-setAppHeight(); // Set initial height
-
-// --- Slideshow Logic (Unchanged) ---
+// --- Slideshow Logic ---
 function changeImage() {
     imageElement.classList.add('fade-out');
     setTimeout(() => {
@@ -21,8 +18,8 @@ function changeImage() {
 }
 setInterval(changeImage, intervalTime);
 
-// --- Simulated Fullscreen Toggle ---
+// --- Fullscreen Toggle ---
+// When the image is clicked, toggle the 'fullscreen' class on its container
 imageElement.addEventListener('click', () => {
-    // Toggles the 'fullscreen-mode' class on the body element
-    document.body.classList.toggle('fullscreen-mode');
+    container.classList.toggle('fullscreen');
 });
