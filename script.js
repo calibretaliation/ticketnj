@@ -4,7 +4,7 @@ const imageElement = document.getElementById('slideshow-image');
 
 // Config
 const images = ['image1.png', 'image2.png'];
-const intervalTime = 5000;
+const intervalTime = 400;
 let currentIndex = 0;
 
 // --- Slideshow Logic ---
