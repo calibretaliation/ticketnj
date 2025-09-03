@@ -6,7 +6,7 @@ body, html {
 
 /* This invisible div is made slightly taller than the screen to create scroll space */
 .scroll-enabler {
-    height: 101vh;
+    height: 110vh;
     width: 100%;
     position: absolute;
     top: 0;
