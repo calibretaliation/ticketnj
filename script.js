@@ -1,6 +1,6 @@
 const imageElement = document.getElementById('slideshow-image');
 const images = ['image1.png', 'image2.png'];
-const intervalTime = 5000; // 5 seconds
+const intervalTime = 500; // 0.5 seconds
 let currentIndex = 0;
 
 function changeImage() {
