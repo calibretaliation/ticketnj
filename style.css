@@ -37,3 +37,38 @@ body, html {
 .fade-out {
     opacity: 0;
 }
+
+.textbox {
+    /* Positioning */
+    position: fixed;
+    bottom: 135px;
+    left: 50%;
+    transform: translateX(-50%); /* This will keep it centered */
+    z-index: 100;
+    
+    /* REMOVE these two lines */
+    /* width: 90%; */
+    /* max-width: 400px; */
+
+    /* Appearance */
+    background-color: rgba(255, 255, 255);
+    padding: 5px;
+    border-radius: 5px;
+
+    /* Font */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+
+    /* Add this to prevent padding from affecting the width calculation */
+    box-sizing: border-box; 
+}
+
+#countdown-box {
+    bottom: 84px; /* Position it above the existing box */
+    font-size: 15px;
+    background-color: rgba(255, 255, 255);
+    transform: translateX(-45%); /* This will keep it centered */
+}
