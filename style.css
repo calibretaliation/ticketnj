@@ -9,19 +9,26 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    /* Fit image within the viewport */
     max-width: 100vw;
     max-height: 100vh;
     object-fit: contain;
-    
-    /* Show the user that the image is clickable */
     cursor: pointer;
-
-    /* Smooth fade transition */
+    
+    transition: all 0.5s ease; /* Animate the transition to fullscreen */
     opacity: 1;
-    transition: opacity 0.7s ease-in-out;
+}
+
+/* This class is added by JavaScript on tap */
+body.fullscreen-mode #slideshow-image {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* Use dynamic height for better mobile fit */
+    height: var(--app-height, 100vh); 
+    transform: none; /* Reset the centering transform */
 }
 
 .fade-out {
     opacity: 0;
+    transition: opacity 0.7s ease-in-out;
 }

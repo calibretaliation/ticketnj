@@ -1,7 +1,14 @@
 const imageElement = document.getElementById('slideshow-image');
 const images = ['image1.png', 'image2.png'];
-const intervalTime = 5000; // 5 seconds
+const intervalTime = 5000;
 let currentIndex = 0;
+
+// --- DYNAMIC HEIGHT: For better mobile display ---
+const setAppHeight = () => {
+    document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+};
+window.addEventListener('resize', setAppHeight);
+setAppHeight(); // Set initial height
 
 // --- Slideshow Logic (Unchanged) ---
 function changeImage() {
@@ -12,21 +19,10 @@ function changeImage() {
         imageElement.classList.remove('fade-out');
     }, 700);
 }
-
-// Start the slideshow
 setInterval(changeImage, intervalTime);
 
-// --- Fullscreen Toggle Logic (New) ---
+// --- Simulated Fullscreen Toggle ---
 imageElement.addEventListener('click', () => {
-    // Check if the page is NOT currently in fullscreen mode
-    if (!document.fullscreenElement) {
-        // If not, request to enter fullscreen
-        // We request it on the main document element for best compatibility
-        document.documentElement.requestFullscreen().catch((err) => {
-            console.error(`Error attempting to enable full-screen mode: ${err.message}`);
-        });
-    } else {
-        // If it IS in fullscreen, exit fullscreen
-        document.exitFullscreen();
-    }
+    // Toggles the 'fullscreen-mode' class on the body element
+    document.body.classList.toggle('fullscreen-mode');
 });
