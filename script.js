@@ -5,7 +5,7 @@ const datetimeBox = document.getElementById('datetime-box');
 
 // --- Config ---
 const images = ['image1.png', 'image2.png'];
-const slideshowIntervalTime = 500; // 5 seconds
+const slideshowIntervalTime = 700; // 5 seconds
 const clockIntervalTime = 1000; // 1 second
 let currentIndex = 0;
 
@@ -104,4 +104,5 @@ function updateCountdown() {
 
 // --- START THE COUNTDOWN ---
 // Add this line with your other interval starters at the bottom of the file
+
 setInterval(updateCountdown, 1000);
