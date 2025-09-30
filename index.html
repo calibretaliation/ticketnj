@@ -17,14 +17,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="image-container">
-        <img id="slideshow-image" src="image1.png" alt="Slideshow Image">
-        <img id="qr-code-image" src="qr.png" alt="QR Code">
+    <!-- Color Selection Screen -->
+    <div id="color-selection-screen">
+        <h1>Choose Your Color</h1>
+        <div class="color-buttons" id="color-buttons-container">
+            <!-- Color buttons will be generated dynamically -->
+        </div>
     </div>
 
-    <div id="countdown-box" class="textbox"></div>
+    <!-- Slideshow Screen (initially hidden) -->
+    <div id="slideshow-screen" style="display: none;">
+        <button id="back-btn" class="back-button">← Back to Colors</button>
+        
+        <div id="image-container">
+            <img id="slideshow-image" src="" alt="Slideshow Image">
+            <img id="qr-code-image" src="qr.png" alt="QR Code">
+        </div>
 
-    <div id="datetime-box" class="textbox"></div>
+        <div id="countdown-box" class="textbox"></div>
+
+        <div id="datetime-box" class="textbox"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>

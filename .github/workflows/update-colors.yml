@@ -1,0 +1,53 @@
+name: Update Colors Index
+
+on:
+  push:
+    paths:
+      - 'colors/**'
+  workflow_dispatch:
+
+jobs:
+  update-colors-index:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Update colors index
+      run: |
+        # Create colors index file
+        echo "# This file lists all available color folders for dynamic loading" > colors/index.txt
+        echo "# GitHub Actions automatically updates this file when folders are added/removed" >> colors/index.txt
+        echo "" >> colors/index.txt
+        
+        # Find all directories in colors folder and add them to index
+        for dir in colors/*/; do
+          if [ -d "$dir" ]; then
+            dirname=$(basename "$dir")
+            # Check if the directory contains both required image files
+            if [ -f "$dir/image1.png" ] && [ -f "$dir/image2.png" ]; then
+              echo "$dirname" >> colors/index.txt
+            fi
+          fi
+        done
+        
+        # Sort the color names (skip the header lines)
+        (head -3 colors/index.txt; tail -n +4 colors/index.txt | sort) > colors/index.txt.tmp
+        mv colors/index.txt.tmp colors/index.txt
+    
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add colors/index.txt
+        
+        # Only commit if there are changes
+        if ! git diff --staged --quiet; then
+          git commit -m "Auto-update colors index [skip ci]"
+          git push
+        else
+          echo "No changes to colors index"
+        fi

@@ -2,6 +2,138 @@ body, html {
     margin: 0;
     padding: 0;
     background-color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Color Selection Screen Styles */
+#color-selection-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    z-index: 1000;
+}
+
+#slideshow-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.back-button {
+    display: none;
+}
+
+.error-message {
+    color: white;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.error-message h2 {
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+.error-message pre {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 0.9em;
+    overflow-x: auto;
+}
+
+.loading-message {
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.loading-message h2 {
+    margin-bottom: 10px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#color-selection-screen h1 {
+    color: white;
+    font-size: 3em;
+    margin-bottom: 50px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.color-buttons {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.color-btn {
+    padding: 20px 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    min-width: 120px;
+}
+
+.color-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.color-btn:active {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    #color-selection-screen h1 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    
+    .color-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .color-btn {
+        padding: 15px 30px;
+        font-size: 1.3em;
+    }
 }
 
 /* The container that holds the image. Starts centered. */
@@ -85,4 +217,29 @@ body, html {
     bottom: 11.5%; /* Position it above the existing box */
     font-size: 15px;
     background-color: rgba(255, 255, 255);   
+}
+
+/* Back Button Styles */
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 200;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.back-button:active {
+    background-color: rgba(0, 0, 0, 1);
 }
