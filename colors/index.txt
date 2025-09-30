@@ -1,8 +1,6 @@
-# This file lists all available color folders for dynamic loading 
-# GitHub Actions automatically updates this file when folders are added/removed 
- 
-blue 
-green 
-purple 
-red 
-yellow 
+# This file lists all available color folders for dynamic loading
+# GitHub Actions automatically updates this file when folders are added/removed
+
+green
+grey
+yellow
